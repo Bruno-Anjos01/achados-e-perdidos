@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Adicionar Item — Achados & Perdidos{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4 class="mb-3">Adicionar novo item</h4>
+
+        <form method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label class="form-label">Título</label>
+            <input name="titulo" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Descrição</label>
+            <textarea name="descricao" rows="4" class="form-control" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Local</label>
+            <input name="local" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Data (ex: 20/11/2025)</label>
+            <input name="data_item" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Imagem</label>
+            <input type="file" name="imagem" accept="image/*" class="form-control" required>
+          </div>
+
+          <div class="d-grid">
+            <button class="btn btn-success">Enviar Item</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Feed — Achados & Perdidos{% endblock %}
+
+{% block body %}
+<h2 class="mb-4">Feed público</h2>
+<div class="row">
+  {% for foto in fotos %}
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <img src="{{ url_for('static', filename=foto.caminho_imagem) }}" class="card-img-top">
+        <div class="card-body">
+          <h6>{{ foto.titulo }}</h6>
+          <p class="text-truncate">{{ foto.descricao }}</p>
+          <small class="text-muted">Postado por {{ foto.usuario.username }}</small>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <p>Nenhum item encontrado.</p>
+  {% endfor %}
+</div>
+{% endblock %}

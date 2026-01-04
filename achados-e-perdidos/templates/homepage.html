@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Login — Achados & Perdidos{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4 class="card-title mb-3 text-center">Login Administração</h4>
+
+        <form method="POST">
+          {{ form.hidden_tag() }}
+
+          <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", maxlength=120) }}
+          </div>
+
+          <div class="mb-3">
+            {{ form.senha.label(class="form-label") }}
+            {{ form.senha(class="form-control", minlength=6) }}
+          </div>
+
+          <div class="d-grid">
+            {{ form.submit(class="btn btn-primary") }}
+          </div>
+        </form>
+
+        <hr>
+        <p class="small text-center">Somente administradores têm login. Alunos acessam o feed sem conta.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Postar Item{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Postar novo item</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            {{ form.titulo.label(class="form-label") }}
+            {{ form.titulo(class="form-control") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.descricao.label(class="form-label") }}
+            {{ form.descricao(class="form-control", rows="4") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.imagem.label(class="form-label") }}
+            {{ form.imagem(class="form-control") }}
+        </div>
+
+        {{ form.submit(class="btn btn-primary w-100") }}
+    </form>
+</div>
+{% endblock %}

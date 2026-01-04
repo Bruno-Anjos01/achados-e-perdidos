@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Perfil — {{ usuario.username }}{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4>{{ usuario.username }}</h4>
+        <p class="mb-1"><strong>Email:</strong> {{ usuario.email }}</p>
+        <p class="mb-1"><strong>Tipo:</strong> {{ usuario.tipo }}</p>
+        {% if current_user.is_authenticated and current_user.tipo == 'admin' %}
+          <a href="{{ url_for('admin_feed') }}" class="btn btn-outline-primary mt-2">Painel</a>
+        {% endif %}
+        <a href="{{ url_for('logout') }}" class="btn btn-link mt-2">Sair</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <h5>Minhas postagens</h5>
+    <div class="row">
+      {% for foto in usuario.fotos %}
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <img src="{{ url_for('static', filename=foto.caminho_imagem) }}" class="card-img-top" style="height:140px; object-fit:cover;">
+          <div class="card-body">
+            <h6 class="card-title">{{ foto.titulo }}</h6>
+            <p class="card-text text-truncate">{{ foto.descricao }}</p>
+            {% if current_user.is_authenticated and current_user.tipo == 'admin' %}
+            <a href="{{ url_for('editar_item', item_id=foto.id) }}" class="btn btn-sm btn-primary">Editar</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% else %}
+        <p>Nenhum item postado por você.</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
