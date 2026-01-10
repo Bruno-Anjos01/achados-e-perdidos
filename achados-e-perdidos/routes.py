@@ -17,21 +17,32 @@ ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
 @app.route("/", methods=["GET", "POST"])
 def homepage():
+    if request.method == "POST":
+        perfil = request.form.get("perfil")
+        if perfil == "aluno":
+            return redirect(url_for("feed"))
+        elif perfil == "admin":
+            if current_user.is_authenticated and current_user.tipo == "admin":
+                return redirect(url_for("admin_feed"))
+            return redirect(url_for("login"))
+    return render_template("homepage.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
     form = FormLogin()
     if form.validate_on_submit():
         usuario = Usuario.query.filter_by(email=form.email.data).first()
         if usuario and bcrypt.check_password_hash(usuario.senha, form.senha.data):
             login_user(usuario)
-            flash("Login realizado.", "success")
+            flash("Login realizado.", "dark")
             return redirect(
                 url_for("admin_feed") if usuario.tipo == "admin" else url_for("feed")
             )
-        flash("Credenciais inválidas.", "danger")
-    return render_template("homepage.html", form=form)
-
+        flash("Credenciais inválidas.", "primary")
+    return render_template("login.html", form=form)
 
 @app.route("/criarconta", methods=["GET", "POST"])
 def criarconta():
@@ -46,8 +57,8 @@ def criarconta():
         )
         db.session.add(usuario)
         db.session.commit()
-        flash("Conta criada com sucesso.", "success")
-        return redirect(url_for("homepage"))
+        flash("Conta criada com sucesso.", "dark")
+        return redirect(url_for("login"))
     return render_template("create_account.html", form=form)
 
 
@@ -55,8 +66,8 @@ def criarconta():
 @login_required
 def logout():
     logout_user()
-    flash("Você saiu da sessão.", "info")
-    return redirect(url_for("homepage"))
+    flash("Você saiu da sessão.", "dark")
+    return redirect(url_for("login"))
 
 
 @app.route("/feed")
@@ -105,7 +116,7 @@ def adicionar_item():
         )
         db.session.add(foto)
         db.session.commit()
-        flash("Item adicionado.", "success")
+        flash("Item adicionado.", "dark")
         return redirect(url_for("admin_feed"))
 
     return render_template("post_item.html", form=form)
@@ -165,7 +176,7 @@ def remover_item(item_id):
 
     db.session.delete(foto)
     db.session.commit()
-    flash("Item removido.", "success")
+    flash("Item removido.", "dark")
     return redirect(url_for("admin_feed"))
 
 
