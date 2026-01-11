@@ -3,7 +3,7 @@
 Sistema web para cadastro e busca de itens perdidos utilizando o Flask.
 
 <p align="center">
-  <img src="static/img/home.png" width="500">
+  <img src="static/home.png" width="500">
 </p>
 
 ## 📖 Descrição
