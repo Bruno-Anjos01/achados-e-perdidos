@@ -2,9 +2,7 @@
 
 Sistema web para cadastro e busca de itens perdidos utilizando o Flask.
 
-<p align="center">
-  <img src="static/img/home.png" width="600">
-</p>
+![alt text](<ChatGPT Image 10 de jan. de 2026, 23_06_45.png>)
 
 ## 📖 Descrição
 Este projeto é uma aplicação web desenvolvida em Python com Flask
@@ -25,38 +23,6 @@ que permite cadastrar, visualizar e gerenciar itens.
 - CSS3
 - Bootstrap
 - SQLite
-
-## 🗂️ Organização
-achados-e-perdidos/
-│
-│
-├── static/
-│   ├── img/
-│   │   └── fundo.jpg
-│   │
-│   └── uploads/
-│   |
-|   └── favicon.png
-│
-├── templates/
-│   ├── base.html
-│   ├── homepage.html
-│   ├── feed.html
-│   ├── admin_feed.html
-│   ├── post_item.html
-│   ├── create_item.html
-│   ├── edit_item.html
-│   ├── perfil.html
-│   ├── login.html
-│   └── create_account.html
-│
-├── main.py
-├── routes.py
-├── models.py
-├── forms.py
-├── manager.py
-├── create_db.py
-
 
 ## 🚀 Execução
 ### Para Executar o projeto clone o repositório
