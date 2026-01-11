@@ -2,7 +2,9 @@
 
 Sistema web para cadastro e busca de itens perdidos utilizando o Flask.
 
-![alt text](<ChatGPT Image 10 de jan. de 2026, 23_06_45.png>)
+<p align="center">
+  <img src="static/img/home.png" width="500">
+</p>
 
 ## 📖 Descrição
 Este projeto é uma aplicação web desenvolvida em Python com Flask
