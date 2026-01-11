@@ -10,17 +10,17 @@
 
         <div class="mb-3">
             {{ form.titulo.label(class="form-label") }}
-            {{ form.titulo(class="form-control") }}
+            {{ form.titulo(class="form-control", style="background-color: gray; border-color: gray") }}
         </div>
 
         <div class="mb-3">
             {{ form.descricao.label(class="form-label") }}
-            {{ form.descricao(class="form-control", rows="4") }}
+            {{ form.descricao(class="form-control", rows="4", style="background-color: gray; border-color: gray") }}
         </div>
 
         <div class="mb-3">
             {{ form.imagem.label(class="form-label") }}
-            {{ form.imagem(class="form-control") }}
+            {{ form.imagem(class="form-control", style="background-color: gray; border-color: gray") }}
         </div>
 
         {{ form.submit(class="btn btn-dark w-100") }}

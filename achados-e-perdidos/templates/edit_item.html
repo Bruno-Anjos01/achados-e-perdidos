@@ -7,17 +7,17 @@
   <form method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label class="form-label">Título</label>
-      <input class="form-control" name="titulo" value="{{ foto.titulo }}" maxlength="120" required>
+      <input class="form-control" style=background-color:gray;border-color:gray; name="titulo" value="{{ foto.titulo }}" maxlength="120" required>
     </div>
     <div class="mb-3">
       <label class="form-label">Descrição</label>
-      <textarea class="form-control" name="descricao" rows="4">{{ foto.descricao }}</textarea>
+      <textarea class="form-control" style=background-color:gray;border-color:gray; name="descricao" rows="4">{{ foto.descricao }}</textarea>
     </div>
     <div class="mb-3">
-      <label class="form-label">Imagem (opcional)</label>
-      <input type="file" class="form-control" name="imagem">
+      <label class="form-label">Alterar imagem</label>
+      <input type="file" class="form-control" name="imagem" style=background-color:gray;border-color:gray;>
     </div>
-    <div class="d-grid">
+    <div class="d-grid" style=background-color:gray;border-color:gray;>
       <button class="btn btn-dark">Salvar alterações</button>
     </div>
   </form>

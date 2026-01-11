@@ -41,7 +41,7 @@ def login():
             return redirect(
                 url_for("admin_feed") if usuario.tipo == "admin" else url_for("feed")
             )
-        flash("Credenciais inválidas.", "primary")
+        flash("Credenciais inválidas.", "danger")
     return render_template("login.html", form=form)
 
 @app.route("/criarconta", methods=["GET", "POST"])
@@ -153,7 +153,7 @@ def editar_item(item_id):
             foto.caminho_imagem = f"uploads/{nome_unico}"
 
         db.session.commit()
-        flash("Item atualizado.", "success")
+        flash("Item atualizado.", "dark")
         return redirect(url_for("admin_feed"))
 
     return render_template("edit_item.html", foto=foto)
