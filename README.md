@@ -2,7 +2,7 @@
 
 Sistema web para cadastro e busca de itens perdidos utilizando o Flask.
 
-![alt text](home.png)
+<img src="home.png" width="300">
 
 ## 📖 Descrição
 Este projeto é uma aplicação web desenvolvida em Python com Flask
