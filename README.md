@@ -31,7 +31,7 @@ git clone https://github.com/Bruno-Anjos01/achados-e-perdidos.git
 ## 🔮 Melhorias futuras
 
 - Sistema de notificações
-- Interface resposiva
+- Sistema  responsivo
 - Chat de conversa
 
 ## 👤 Autor
